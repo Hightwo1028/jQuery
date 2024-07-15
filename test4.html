@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<script>
+    $(() => {
+        //.even() , .odd()
+        //.eq(2)    //陣列索引值
+        // .slice(1, 3)  // 1-3不含3
+        //.slice(-3) // 負索引
+        // .not($('li').eq(1))   // 1不要 選0 2 3
+        // .css('background-color', 'cyan')
+        // .eq(0)
+        // .css('background-color', 'green')
+        // $('li')
+        // .slice(1)
+        // .css('background-color', 'yellow')
+        // .css('background-color', 'yellow')
+        // $('li')
+        // .first()
+        // .css('background-color', 'green')
+        // .not($('li')).eq(0).css('background-color', 'green')
+        // .css('background-color', 'cyan')
+        //$('li')
+        // .first() 
+        // .parent() //第一個的把拔
+        // .parent() //body
+        // .children()
+        // .eq(1)
+        // .children()
+        // .eq(2)   //第二個C
+        // .siblings()  //找鄰居  => A, B, D
+        // .css('background-color', 'cyan')
+        // document.querySelector('ul')
+        //     //.firstChild   //指的是換行符號跟前面的空白鍵
+        //     .firstElementChild //這才是指到元素
+        //     .style.backgroundColor = 'cyan'
+        // document.querySelector('li')
+        // .parentElement
+        // .nextElementSibling
+        // .children[1]
+        // .style
+        // .backgroundColor = 'cyan'
+        const x = Math.floor(Math.random() * 4)
+        console.log(x);
+        $('li')
+
+
+            
+            // .eq(1)   //由C發動 把B移到C後面
+            // .css('background-color', 'lightgreen')
+            // .before($('li').eq(2))
+            // .before('<li>new</li>')
+            // .after('<li>new1</li>')
+            // .parent()
+            // .append('<li>EEE</li>')   //插入頭
+            // .append($('li').first())   //不存在就新增 存在就移動 first有存在 所以移動
+            // .prepend('<li>OOO</li>')    //插入尾
+
+            // $('li').eq(2).empty()   //刪除內容 標籤還在
+            // $('li').eq(2).remove()  //標籤沒有ㄌ
+    })
+</script>
+
+<body>
+    <ul>
+        <li>AAA</li>
+        <li>BBB</li>
+        <li>CCC</li>
+        <li>DDD</li>
+    </ul>
+    <!-- <ul>
+        <li>AAA</li>
+        <li>BBB</li>
+        <li>CCC</li>
+        <li>DDD</li>
+    </ul> -->
+
+    <!-- 隨機li 跟 點選按鈕更換li在兩個ul的位置 -->
+
+</body>
+
+</html>

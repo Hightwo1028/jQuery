@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* span:hover {
+            cursor: pointer
+        } */
+
+        #firstFoneSize {
+            font-size: 16px;
+        }
+
+        #secondFoneSize {
+            font-size: 24px;
+        }
+
+        #thirdFoneSize {
+            font-size: 32px;
+        }
+    </style>
+</head>
+
+<script>
+    $(() => {
+        // $('#firstFoneSize').click(() => {
+        //     $('#main')
+        //         .css('font-size', '12px')
+        // })
+        // $('#secondFoneSize').click(() => {
+        //     $('#main')
+        //         .css('font-size', '20px')
+        // })
+        // $('#thirdFoneSize').click(() => {
+        //     $('#main')
+        //         .css('font-size', '28px')
+        // })
+
+
+        // $('p').addClass('small')
+        // $('div span').click((event) => {
+        //     const class_name = $(event.target).attr('class')
+        //     $('p').removeClass().addClass(class_name)    //用這個要把內容放在一個p標籤
+        // })
+        //也可以把event 改成 function 不能用箭頭函數 然後用js this的方法去指
+
+        $('button').each((index, button) => {
+            console.log(button);
+            $(button).css('color', button.id)    //重點
+        })
+
+        const arr = ['獅子', '老虎', '大象']
+        $.each(arr, (index, value) => {
+            console.log(index);
+            console.log(value);
+        })
+
+        arr.forEach((value) => {
+            console.log(value);
+        })
+
+        $('#hide').click(() => {
+            $('.a').hide(1000)
+        })
+        $('#toggle').click(() => {
+            $('.a').toggle(1000)
+        })
+        $('#show').click(() => {
+            $('.a').show(1000)
+        })
+    })
+</script>
+
+<body>
+    <!-- <span id="firstFoneSize">A&nbsp;</span>
+    <span id="secondFoneSize">A&nbsp;</span>
+    <span id="thirdFoneSize">A</span>
+
+    <div id="main">jQuery是一套跨瀏覽器的JavaScript函式庫，用於簡化HTML與JavaScript之間的操作。
+        約翰·雷西格（John Resig）在2006年1月的BarCamp NYC上釋出了第一個版本。
+        目前由Dave Methvin領導的團隊進行開發。
+        全球前10,000個訪問最高的網站中，有65%使用了jQuery，
+        是曾經最受歡迎的JavaScript函式庫。</div> -->
+    <div>
+        <button id="show">show</button>
+        <button id="hide">hide</button>
+        <button id="toggle">toggle</button>
+    </div>
+
+    <button class="a" id="red">Red</button>
+    <button class="a" id="yellow">Yellow</button>
+    <button class="a" id="green">Green</button>
+</body>
+
+</html>

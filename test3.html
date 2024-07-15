@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<script>
+    $(() => {
+        // $('#readed').click(() => {
+        //     const status = $('#readed').prop('checked')
+        //     console.log(status);
+        //     if (status) {
+        //         $('#google').attr('href', 'http://www.google.com')
+        //         $('#google').css('color', 'black')
+        //     }
+        //     else {
+        //         $('#google').css('color', 'red')
+        //     }
+        // })
+
+        //--------------------
+        // $('#bn').click(() => {
+        //     $('div')                    直接改
+        //     .css('color', 'green')
+        //     .css('background-color', 'yellow')
+        // })
+        // $('#bn').click(() => {
+        //     $('div').css({
+        //         'color': 'orange',          //物件賦值
+        //         'background-color': 'blue',
+        //     })
+        // })
+
+        // $('#bn').click(() => {
+        //     $('div').toggleClass('bgcolor')   //反覆觸發賦予/拔除class
+        // })
+
+        // $('#bn').click(() => {
+        //     $('div').removeClass('fgcolor')
+        //     $('div').removeClass('bgcolor')
+        // })
+        $('#bn').click(() => {
+            $('div').removeClass('fgcolor')
+            $('div').removeClass('bgcolor')
+            console.log($('div').hasClass('bgcolor'));
+
+        })
+    })
+</script>
+<style>
+    .card {
+        width: 120px;
+        height: 100px;
+        border: solid 1px;
+        border-radius: 3px;
+    }
+
+    .fgcolor {
+        color: yellow;
+    }
+
+    .bgcolor {
+        background-color: aquamarine;
+    }
+</style>
+
+<body>
+    <button id="bn">Click</button>
+    <div class="fgcolor bgcolor">Hello, World!</div>
+
+
+    <!-- <div class="card">
+        已閱讀
+        <input id="readed" type="checkbox">
+        <br>
+        <br>
+        <a href="" id="google">Google</a>
+    </div> -->
+</body>
+
+</html>
