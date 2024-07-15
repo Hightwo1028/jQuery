@@ -46,41 +46,77 @@
         // .children[1]
         // .style
         // .backgroundColor = 'cyan'
-        const x = Math.floor(Math.random() * 4)
-        console.log(x);
-        $('li')
+
+        // .eq(1)   //由C發動 把B移到C後面
+        // .css('background-color', 'lightgreen')
+        // .before($('li').eq(2))
+        // .before('<li>new</li>')
+        // .after('<li>new1</li>')
+        // .parent()
+        // .append('<li>EEE</li>')   //插入頭
+        // .append($('li').first())   //不存在就新增 存在就移動 first有存在 所以移動
+        // .prepend('<li>OOO</li>')    //插入尾
+
+        // $('li').eq(2).empty()   //刪除內容 標籤還在
+        // $('li').eq(2).remove()  //標籤沒有ㄌ
+        let arr = [0, 1, 2, 3]
+
+        for (let i = 0; i < 100; i++) {
+            const x = Math.floor(Math.random() * 4);
+            const y = Math.floor(Math.random() * 4);
+            let temp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = temp;
+        }
+        console.log(arr);
+
+        // for (let i = 0; i < 4; i++) {
+        //     $('li')
+        //         .parent()
+        //         .eq(0)
+        //         .append($('li').eq(arr[i + 1]))
+        //     console.log(arr[i]);
+        // }
+
+        for (let i = 0; i < 4; i++) {
+            $('p')
+                .after($('li').eq(arr[i]))
+            console.log(arr[i]);
+        }
 
 
-            
-            // .eq(1)   //由C發動 把B移到C後面
-            // .css('background-color', 'lightgreen')
-            // .before($('li').eq(2))
-            // .before('<li>new</li>')
-            // .after('<li>new1</li>')
-            // .parent()
-            // .append('<li>EEE</li>')   //插入頭
-            // .append($('li').first())   //不存在就新增 存在就移動 first有存在 所以移動
-            // .prepend('<li>OOO</li>')    //插入尾
+        let i = 1;
 
-            // $('li').eq(2).empty()   //刪除內容 標籤還在
-            // $('li').eq(2).remove()  //標籤沒有ㄌ
+        $('#change').click(() => {
+            if (i === 1) {
+                $('ul')
+                    .eq(1)
+                    .append($('li').eq(3))
+                i = i - 1
+            }
+            else if (i === 0) {
+                $('ul')
+                    .eq(0)
+                    .append($('li').eq(3))
+                i = i + 1
+            }
+        })
     })
+
 </script>
 
 <body>
     <ul>
+        <p></p>
         <li>AAA</li>
         <li>BBB</li>
         <li>CCC</li>
         <li>DDD</li>
     </ul>
-    <!-- <ul>
-        <li>AAA</li>
-        <li>BBB</li>
-        <li>CCC</li>
-        <li>DDD</li>
-    </ul> -->
+    <ul>
 
+    </ul>
+    <button id="change">click</button>
     <!-- 隨機li 跟 點選按鈕更換li在兩個ul的位置 -->
 
 </body>
