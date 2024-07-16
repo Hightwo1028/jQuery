@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .usertable { 
+            border: solid 1px;
+        }
+
+        th {
+            border: solid 1px;
+        }
+
+        td {
+            border: solid 1px;
+        }
+    </style>
+</head>
+
+<script>
+    // url: 'https://raw.githubusercontent.com/kirkchu/mongodb/main/elephant.jpg',
+    $(() => {
+       const complete = (result) => {
+           console.log(result)
+           const jsonObj = JSON.parse(result)
+           let table = `
+               ${jsonObj.records[0].publishtime}
+               <table border="1">
+                   <tr>
+                       <th>County</th>
+                       <th>SiteName</th>
+                       <th>AQI</th>
+                       <th>Status</th>
+                   </tr>
+           `
+           jsonObj.records.forEach((data) => {
+               table += `
+                   <tr>
+                       <td>${data.county}</td>
+                       <td>${data.sitename}</td>
+                       <td>${data.aqi}</td>
+                       <td>${data.status}</td>
+                   </tr>
+               `
+           })
+           table += '</table>'
+           $('#root').html(table)
+    
+    
+           $('tr')
+               .slice(1)
+               .mouseenter((event) => {
+                   $(event.target)
+                       .parent()
+                       .css('background-color', 'yellow')
+               })
+               .mouseleave((event) => {
+                   $(event.target)
+                       .parent()
+                       .css('background-color', 'white')
+               })
+       }
+    
+    
+       $('#bn').click(() => {
+           $('#root').html('🌀')
+           $.ajax({
+               url: 'https://raw.githubusercontent.com/kirkchu/mongodb/main/aqiv2.json',
+               success: complete
+           })
+           //$.get(url, complete)
+       })
+    })
+
+     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // fetch(url)
+    // .then((response) => {
+    //     //return response.json() //直接做解析 拿到jsonObj
+    //     return response.text()
+    // })
+    // .then(complete)
+    // </script>
+    
+    
+
+<body>
+    <h1>Header</h1>
+    <button id="bn">Click</button>
+    <div id="root"></div>
+</body>
+
+</html>

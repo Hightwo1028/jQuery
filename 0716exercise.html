@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<script>
+    $(() => {
+        $('#aaa').accordion({
+            create: (event, ui) => {
+                $('.ui-accordion-header-active').css({
+                    'background-color': 'lightyellow',
+                    'border': 'yellow 1px solid',
+                    'color': 'black'
+                })
+            },
+            beforeActivate: (event, ui) => {
+                ui.oldHeader.css({
+                    'background-color': '#f6f6f6',
+                    'border': '#c5c5c5 1px solid',
+                    'color': 'black'
+                })
+                ui.newHeader.css({
+                    'background-color': 'lightyellow',
+                    'border': 'yellow 1px solid',
+                    'color': 'black'
+                })
+            }
+        })
+    })
+</script>
+<body>
+    <div id="aaa">
+        <h1>一月</h1>
+        <div>TESTESTSESTSESTSEST</div>
+        <h1>二月</h1>
+        <div>HHIIHIHIHIHIHIH</div>
+    </div>
+</body>
+</html>

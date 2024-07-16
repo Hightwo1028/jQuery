@@ -101,6 +101,14 @@
                 i = i + 1
             }
         })
+
+        $('#bn').click(() => {
+            $('li').each((index, li) => {
+                const at = parseInt(Math.random() * $('li').length)
+                $('li').eq(at).after($(li))
+            })
+
+        })
     })
 
 </script>
@@ -116,6 +124,7 @@
     <ul>
 
     </ul>
+    <button id="bn">bnnnnn</button>
     <button id="change">click</button>
     <!-- 隨機li 跟 點選按鈕更換li在兩個ul的位置 -->
 

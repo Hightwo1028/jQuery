@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<script>
+// url: 'https://raw.githubusercontent.com/kirkchu/mongodb/main/elephant.jpg',
+$(() => {
+   $('#bn').click(() => {
+       $('#root').html('🌀')
+       $.ajax({
+           url: 'https://raw.githubusercontent.com/kirkchu/mongodb/main/demo.json',
+           success: (result) => {
+               console.log(result)
+               const jsonObj = JSON.parse(result)
+               let table = `
+                   <table border="1">
+                       <tr><th>id</th><th>name</th><th>age</th></tr>
+               `
+               jsonObj.forEach((data) => {
+                   table += `
+                       <tr>
+                           <td>${data.id}</td>
+                           <td>${data.name}</td>
+                           <td>${data.age}</td>
+                       </tr>
+                   `
+               })
+               table += '</table>'
+               $('#root').html(table)
+
+
+               $('tr')
+                   .slice(1)
+                   .mouseenter((event) => {
+                       $(event.target)
+                           .parent()
+                           .css('background-color', 'yellow')
+                   })
+                   .mouseleave((event) => {
+                       $(event.target)
+                           .parent()
+                           .css('background-color', 'white')
+                   })
+                  
+                  
+           }
+       })
+   })
+})
+</script>
+<body>
+   <h1>Header</h1>
+   <button id="bn">Click</button><p></p>
+   <div id="root"></div>
+</body>
+</html>
