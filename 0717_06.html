@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<script>
+$(() => {
+   // async function hello1() {
+   //     return 'Hello1'
+   // }
+
+
+   function div(a, b) {
+       return new Promise((resolve, reject) => {
+           if (b == 0) {
+               reject('分母不可為零')
+           } else {
+               resolve(a / b)
+           }
+       })
+   }
+
+
+   async function adiv(a, b) {
+       if (b == 0) {
+           throw '分母不可為零！！！！'
+       }
+       return a / b
+   }
+
+
+   function hello1() {
+       return new Promise((resolve, reject) => {
+           reject('hello')
+       })
+
+
+
+
+       // return 'hello'
+   }
+
+
+   adiv(5, 3)
+   .then((result) => {
+       console.log(result)
+       return parseInt(result)
+   })
+   .then((result) => {
+       console.log(result)
+       throw 'OOXX'
+       return result + result
+   })
+   .then((result) => {
+       console.log(result)
+   })
+   .catch((reason) => {
+       console.log(`ERROR: ${reason}`)
+   })
+
+
+   // hello1()
+   // .then((result) => {
+   //     console.log(result)
+   // })
+   // .catch((reason) => {
+   //     console.log(`ERROR: ${reason}`)
+   // })
+
+
+   console.log('done')
+})
+</script>
+<body> 
+</body>
+</html>

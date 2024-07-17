@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<style>
+    .ui-widget-header {
+        border: 1px solid yellow;
+        background-color: #f25041;
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+<script>
+    $(() => {
+        $('#aaa').dialog({
+            
+            autoOpen: false,
+            modal: true,
+            draggable: false,
+            buttons: {
+                '確定': () => {
+                    $('#aaa').dialog('close')
+                },
+                '取消': () => {
+                    $('#aaa').dialog('close')
+                }
+            }
+        })
+        $('#bn').click(() => {
+            $('#aaa').dialog('open')
+        })
+    })
+</script>
+<body>
+    <button id="bn">刪除檔案</button>
+    <div id="aaa"title="對話框">
+        TestTestTestTestTestTestTest<p></p>
+        <img src="https://raw.githubusercontent.com/kirkchu/mongodb/main/elephant.jpg" width="200">
+    </div>
+</body>
+</html>

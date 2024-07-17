@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+
+<script>
+    $(() => {
+        const url = 'https://raw.githubusercontent.com/kirkchu/mongodb/main/elephant.jpg'
+        $('#jquery').click(() => {
+            $.ajax({
+                url: url,
+                async: false,
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: (result) => {
+                    const url = URL.createObjectURL(result)
+                    $('#image').attr('src', url)
+                    console.log('jQuerydisplay image complete')
+                }
+            })
+            console.log('done')
+        })
+
+        $('#fetch').click(async() => {
+            const responce = await fetch(url)
+            const result = await responce.blob()
+            image.src = URL.createObjectURL(result)
+            console.log('display image complete')
+        })
+        console.log('done')
+    })
+</script>
+
+<body>
+    <button id="jquery">jQuery</button>
+    <button id="fetch">Fetch</button>
+    <img id="image" style="width: 200px;"></img>
+</body>
+
+</html>

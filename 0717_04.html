@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<style>
+    .ui-menu {
+        width: 100px;
+    }
+
+    .progressbar {
+        position: relative;
+        width: 200px;
+        background-color: bisque;
+    }
+
+    .label {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ui-progressbar-value {
+        background-color: chocolate;
+    }
+</style>
+<script>
+    $(() => {
+        $('#aaa').tabs()
+        $('#bar').progressbar({
+            max: 100,
+            change: (event, ui) => {
+                const value = $(event.target).progressbar('value')
+                console.log(value);
+                $('label').text(`${value}%`)
+            },
+            complete: (event, ui) => {
+                console.log('complete');
+                $('label').text(`complete`)
+            }
+        })
+        $('#bn').click(() => {
+            const value = parseInt($('#text').val())
+            $('#bar').progressbar('value', value)
+        })
+        $('#slider').slider({
+            step: 10,
+            slide: (event, ui) => {
+                $('.ui-slider-handle').text(ui.value)
+            }
+        })
+    })
+</script>
+
+<body>
+    <div id="slider"><div class="ui-slider-handle">0</div></div><p></p>
+    <input id="text"><button id="bn">click</button>
+    <p></p>
+    <div class="progressbar">
+        <div class="label"></div>
+        <div id="bar"></div>
+    </div>
+    <p></p>
+    <div id="aaa">
+        <ul>
+            <li><a href="#a1">一月</a></li>
+            <li><a href="#a2">二月</a></li>
+            <li><a href="#a3">三月</a></li>
+        </ul>
+        <div id="a1">AAA</div>
+        <div id="a2">BBB</div>
+        <div id="a3">CCC</div>
+    </div>
+</body>
+
+</html>

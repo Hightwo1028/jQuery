@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="./datepicker-zh-TW.js"></script>
+</head>
+<style>
+    #date {
+        margin-left: 5px;
+        color:brown
+    }
+</style>
+<script>
+    $(() => {
+        $('#date').datepicker({
+            showOn: 'button',
+            buttonText: '選擇日期',
+            regional: 'zh-TW',
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true, 
+            dateFormat: '西元yy年m月d日',
+            minDate: new Date(),
+            maxDate: '+30d'
+        })
+
+        //$('.ui-datepicker-trigger').after($('#date'))
+        $('#date').next().after($('#date'))
+    })
+</script>
+<body>
+    <input id="date" disabled >
+</body>
+</html>

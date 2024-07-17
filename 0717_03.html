@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<style>
+    .ui-menu {
+        width: 100px;
+    }
+</style>
+<script>
+    $(() => {
+        $('#menu').hide()
+        $('#menu').menu({
+            select: (event, ui) => {
+                const el = $(event.currentTarget)
+                console.log($(event.target))
+                console.log($(event.currentTarget))
+                console.log(el.children().first().html())
+                console.log(el.attr('id'));
+            }
+        })
+        $('#bn').click(() => {
+            $('#menu').show()
+        })
+    })
+</script>
+<body>
+    <button id="bn">刪除檔案</button>
+    <ul id="menu">
+        <li id="m01"><div>開啟舊檔</div></li>
+        <li id="m02"><div class="ui-state-disabled">上傳檔案</div></li>
+        <li id="m03"><div>選項</div>
+            <ul>
+                <li id="m04"><div>工具</div></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
