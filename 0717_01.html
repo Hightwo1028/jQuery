@@ -29,7 +29,7 @@
             console.log('done')
         })
 
-        $('#fetch').click(async() => {
+        $('#fetch').click(async () => {
             const responce = await fetch(url)
             const result = await responce.blob()
             image.src = URL.createObjectURL(result)
